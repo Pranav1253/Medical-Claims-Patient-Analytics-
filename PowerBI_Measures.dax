@@ -1,0 +1,50 @@
+// Core claims KPIs
+Total Claims =
+DISTINCTCOUNT(FactClaims[Claim_ID])
+
+Claims Handled =
+CALCULATE(
+    [Total Claims],
+    FactClaims[Handled_Flag] = 1
+)
+
+Total Claim Amount =
+SUM(FactClaims[Claim_Amount])
+
+Total Payments =
+SUM(FactClaims[Payment_Amount])
+
+Outstanding Claim Balance =
+SUM(FactClaims[Claim_Balance])
+
+Claim Handling Rate =
+DIVIDE([Claims Handled], [Total Claims], 0)
+
+Active Patients =
+DISTINCTCOUNT(FactClaims[Patient_ID])
+
+Claims per Patient =
+DIVIDE([Total Claims], [Active Patients], 0)
+
+Claim Amount per Patient =
+DIVIDE([Total Claim Amount], [Active Patients], 0)
+
+Average Claim Amount =
+DIVIDE([Total Claim Amount], [Total Claims], 0)
+
+// Provider measures
+Active Providers =
+DISTINCTCOUNT(FactClaims[Provider_ID])
+
+Claim Amount per Provider =
+DIVIDE([Total Claim Amount], [Active Providers], 0)
+
+// Patient-history measures
+Total Encounters =
+DISTINCTCOUNT(FactEncounters[Encounter_ID])
+
+Active Conditions =
+CALCULATE(
+    DISTINCTCOUNT(FactConditions[Condition_Code]),
+    ISBLANK(FactConditions[Condition_Stop_Date])
+)

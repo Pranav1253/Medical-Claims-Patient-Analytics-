@@ -1,0 +1,8 @@
+Table,Rows,Columns,Duplicate_Rows,Missing_Values
+DimPatient,113,17,0,98
+DimProvider,283,13,0,0
+DimPayer,10,4,0,10
+DimDate,34745,6,0,0
+FactClaims,15390,16,0,1302
+FactEncounters,7210,15,0,5898
+FactConditions,4748,7,0,1121
