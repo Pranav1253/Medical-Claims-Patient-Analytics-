@@ -39,7 +39,6 @@ This portfolio project analyzes synthetic healthcare claims, patient history, an
 | DimPayer[Payer_ID] | FactEncounters[Payer_ID] | 1 to many |
 | DimDate[Date] | FactClaims[Service_Date] | 1 to many |
 
-Mark `DimDate` as the date table using `Date`.
 
 
 
